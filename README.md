@@ -19,6 +19,7 @@
 ## Front-end
 - Thymeleaf Templete Engine
 - Componente Do Framework Bootstrap
+- HTML5
 
 
 
