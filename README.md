@@ -1,2 +1,2 @@
-# cadastro-vendedor-demo
-Projeto exemplar 
+# Projeto Cadastro de Vendedor
+
