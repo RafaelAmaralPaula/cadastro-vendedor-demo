@@ -1,14 +1,14 @@
 # Projeto Cadastro de Vendedor
 
-#Sobre o projeto
+# Sobre o projeto
 
 -Projeto exemplar para cadastramento de vendedor;
 -CRUD completo e filtro especifíco;
 -Possui validações dos dados;
 
-#Tecnologias utilizadas
+# Tecnologias utilizadas
 
-##Back-end
+## Back-end
 - Java
 - Maven 
 - Spring Data JPA
@@ -16,7 +16,7 @@
 - Spring Boot
 - Data Base MySQL
 
-##Front-end
+## Front-end
 - Tymeleaf templete engine
 - Boostrap
 
