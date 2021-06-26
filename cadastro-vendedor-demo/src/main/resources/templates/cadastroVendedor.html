@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<title>Cadastro de Vendedor</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-light bg-light">
+			<span class="navbar-brand mb-0 h1" style="font-weight: bold;">Cadastro
+				Vendedor </span><a href="/vendedor/listar" class="btn btn-primary"
+				role="button">Voltar para tela inicial</a>
+		</nav>
+	</header>
+
+
+	<div class="alert alert-danger" role="alert" style="width: 500px; margin: auto;"
+		th:each="msg:${mensagemerros}" th:text="${msg}"></div>
+
+
+	<form action="salvar" method="post" th:object="${vendedorobj}"
+		class="row gy-2 gx-3 align-items-center"
+		style="padding-left: 90px; padding-top: 70px;">
+
+		<div class="col-sm-1">
+			<label class="visually-hidden" for="autoSizingInput">Código</label> <input
+				type="text" class="form-control" id="autoSizingInput" name="codigo"
+				th:field="*{codigo}" readonly="readonly">
+		</div>
+
+
+		<div class="col-sm-5">
+			<label class="visually-hidden" for="autoSizingInput">Nome
+				Completo </label> <input type="text" class="form-control"
+				id="autoSizingInput" placeholder="João Silva" name="nome"
+				th:field="*{nome}">
+		</div>
+
+		<div class="col-sm-6">
+			<label class="visually-hidden" for="autoSizingInputGroup">Endereço</label>
+			<div class="input-group">
+				<div class="input-group-text">Address</div>
+				<input type="text" class="form-control" id="autoSizingInputGroup"
+					placeholder="Avenida Paulista, 316, apartamento 13"
+					name="endereco.logradouro" th:field=*{endereco.logradouro}>
+			</div>
+		</div>
+
+
+		<div class="col-sm-3">
+			<label class="visually-hidden" for="autoSizingInputGroup">Cep</label>
+			<div class="input-group">
+				<div class="input-group-text">Zip code</div>
+				<input type="text" class="form-control" id="autoSizingInputGroup"
+					placeholder="27274-200" onkeypress="$(this).mask('00.000-000')"
+					name="endereco.cep" th:field=*{endereco.cep}>
+			</div>
+		</div>
+
+		<div class="col-sm-5">
+			<label class="visually-hidden" for="autoSizingInputGroup">Bairro</label>
+			<div class="input-group">
+				<div class="input-group-text">Neighborhood</div>
+				<input type="text" class="form-control" id="autoSizingInputGroup"
+					placeholder="Barra da Tijuca" name="endereco.bairro"
+					th:field=*{endereco.bairro}>
+			</div>
+		</div>
+
+
+
+
+		<div class="col-sm-3">
+			<label class="visually-hidden" for="autoSizingInputGroup">Cidade</label>
+			<div class="input-group">
+				<div class="input-group-text">City</div>
+				<input type="text" class="form-control" id="autoSizingInputGroup"
+					placeholder="Volta Redonda" name="endereco.cidade"
+					th:field=*{endereco.cidade}>
+			</div>
+		</div>
+
+		<div class="col-sm-1">
+			<label class="visually-hidden" for="autoSizingInputGroup">UF</label>
+			<div class="input-group">
+				<input type="text" class="form-control" id="autoSizingInputGroup"
+					placeholder="RJ" name="endereco.uf" th:field=*{endereco.uf}>
+			</div>
+		</div>
+
+		<div class="col-sm-3">
+			<label class="visually-hidden" for="autoSizingInputGroup">E-mail</label>
+			<div class="input-group">
+				<div class="input-group-text">Email</div>
+				<input type="text" class="form-control" id="autoSizingInputGroup"
+					placeholder="contato@gteste.com" name="email " th:field=*{email}>
+			</div>
+		</div>
+
+		<div class="col-sm-5">
+			<label class="visually-hidden" for="autoSizingInputGroup">Telefone</label>
+			<div class="input-group">
+				<div class="input-group-text">Phone</div>
+				<input type="text" class="form-control" id="autoSizingInputGroup"
+					placeholder="(24)999895623"
+					onkeypress="$(this).mask('(00) 0000-00009')" name="numeroTelefone"
+					th:field=*{numeroTelefone}>
+			</div>
+		</div>
+
+
+		<div class="col-sm-3">
+			<label class="visually-hidden" for="autoSizingInputGroup">CNPJ</label>
+			<div class="input-group">
+				<div class="input-group-text">CNPJ</div>
+				<input type="text" class="form-control" id="autoSizingInputGroup"
+					onkeypress="$(this).mask('00.000.000/0000-00')"
+					placeholder="00.291.685/0001-72" name="cnpj" th:field=*{cnpj}>
+			</div>
+		</div>
+
+		<div class="col-auto">
+			<label class="visually-hidden" for="autoSizingSelect">Tipo
+				Pessoa</label> <select class="form-select" id="autoSizingSelect"
+				style="margin-top: 20px;" name="tipoPessoa" th:field=*{tipoPessoa}>
+				<option selected disabled value="">Selecione...</option>
+				<option value="JURIDICA" th:text="Juridica" />
+			</select>
+		</div>
+
+		<button type="submit" class="btn btn-primary"
+			style="margin-top: 10px; margin-right: 84%; width: 20%;">Salvar</button>
+	</form>
+
+	<footer
+		style="background-color: black; height: 164px; margin-top: 180px;">
+		<p
+			style="text-align: center; margin-top: 50px; padding-top: 50px; color: white; font-size: 20px;">Projeto
+			exemplar GamaAcademy</p>
+	</footer>
+</body>

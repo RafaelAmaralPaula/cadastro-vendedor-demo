@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<title>Listagem De Vendedores</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+</head>
+
+<body>
+	<header>
+		<nav class="navbar navbar-light bg-light">
+
+			<form action="pesquisa" method="post"
+				class="form-inline d-flex justify-content-center md-form form-sm active-cyan active-cyan-2 mt-2">
+				<i class="fas fa-search" aria-hidden="true"></i> <input name="nome"
+					class="form-control form-control-sm ml-3 w-75" type="text"
+					placeholder="Pesquisar" aria-label="Digite iniciais de um nome "/>
+			</form>
+			<span class="navbar-brand mb-0 h1"
+				style="font-weight: bold;">Lista De
+				Vendedores </span><a href="/vendedor/pagina-cadastro" class="btn btn-primary"
+				role="button">Salvar um novo vendedor</a>
+
+		</nav>
+	</header>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Nome</th>
+				<th scope="col">Endereço</th>
+				<th scope="col">CEP</th>
+				<th scope="col">Cidade</th>
+				<th scope="col">Bairro</th>
+				<th scope="col">UF</th>
+				<th scope="col">Telefone</th>
+				<th scope="col">E-mail</th>
+				<th scope="col">CNPJ</th>
+				<th scope="col">Tipo Pessoa</th>
+				<th scope="col">#</th>
+				<th scope="col">#</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="vendedor:${vendedores}">
+				<th scope="row" th:text="${vendedor.codigo}"></th>
+				<td th:text="${vendedor.nome}"></td>
+				<td th:text="${vendedor.endereco.logradouro}"></td>
+				<td th:text="${vendedor.endereco.cep}"></td>
+				<td th:text="${vendedor.endereco.cidade}"></td>
+				<td th:text="${vendedor.endereco.bairro}"></td>
+				<td th:text="${vendedor.endereco.uf}"></td>
+				<td th:text="${vendedor.numeroTelefone}"></td>
+				<td th:text="${vendedor.email}"></td>
+				<td th:text="${vendedor.cnpj}"></td>
+				<td th:text="${vendedor.tipoPessoa}"></td>
+				<td><a th:href="@{/vendedor/editar/{codigo}(codigo=${vendedor.codigo})}">Editar</a></td>
+				<td><a th:href="@{/vendedor/excluir/{codigo}(codigo=${vendedor.codigo})}" style="color: red;">Excluir</a></td>
+				
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
