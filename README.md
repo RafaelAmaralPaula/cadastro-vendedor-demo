@@ -3,7 +3,7 @@
 # Sobre o projeto
 
 - Projeto exemplar para cadastramento de vendedor;
-- CRUD completo e filtro especifíco;
+- CRUD completo;
 - Possui validações dos dados;
 
 # Tecnologias utilizadas
@@ -17,8 +17,8 @@
 - Data Base MySQL
 
 ## Front-end
-- Tymeleaf templete engine
-- Boostrap
+- Thymeleaf Templete Engine
+- Componente Do Framework Bootstrap
 
 
 
