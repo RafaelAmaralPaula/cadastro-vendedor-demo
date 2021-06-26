@@ -2,9 +2,9 @@
 
 # Sobre o projeto
 
--Projeto exemplar para cadastramento de vendedor;
--CRUD completo e filtro especifíco;
--Possui validações dos dados;
+- Projeto exemplar para cadastramento de vendedor;
+- CRUD completo e filtro especifíco;
+- Possui validações dos dados;
 
 # Tecnologias utilizadas
 
