@@ -27,7 +27,7 @@ public class VendedorController {
 
 	@Autowired
 	private VendedorRepository vendedorRepository;
-	
+
 	@Autowired
 	private MessageSource messageSource;
 
@@ -56,9 +56,8 @@ public class VendedorController {
 			ModelAndView modelAndView = new ModelAndView("cadastroVendedor");
 			List<String> listErros = new ArrayList<>();
 
-			
 			for (FieldError erros : bindingResultError.getFieldErrors()) {
-				String mensagem = messageSource.getMessage(erros,LocaleContextHolder.getLocale());
+				String mensagem = messageSource.getMessage(erros, LocaleContextHolder.getLocale());
 				listErros.add(mensagem);
 			}
 
@@ -71,7 +70,7 @@ public class VendedorController {
 
 		vendedorRepository.save(vendedor);
 
-		ModelAndView view = new ModelAndView("listar");
+		ModelAndView view = new ModelAndView("redirect:/vendedor/listar");
 		view.addObject("vendedores", vendedorRepository.findAll());
 		view.addObject("vendedorobj", new Vendedor());
 
@@ -91,10 +90,11 @@ public class VendedorController {
 	}
 
 	@GetMapping("/excluir/{codigo}")
-	public String deletar(@PathVariable Long codigo) {
+	public ModelAndView deletar(@PathVariable Long codigo) {
+		ModelAndView modelAndView = new ModelAndView("redirect:/vendedor/listar");
 		vendedorRepository.deleteById(codigo);
 
-		return "redirect:/vendedor/listar";
+		return modelAndView;
 
 	}
 
